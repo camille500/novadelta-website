@@ -1,26 +1,33 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+  <div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
     <!-- Navigation -->
-    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <nav class="bg-white/80 backdrop-blur-md shadow-lg border-b border-blue-100 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <div class="flex items-center space-x-4">
-            <img src="/images/b125b038-4c52-4e07-9222-11ea329d6370.png" alt="NOVA DELTA" class="h-12 w-auto transition-transform hover:scale-105">
-            <span class="text-2xl font-bold bg-gradient-to-r from-blue-900 to-purple-800 bg-clip-text text-transparent">NOVA DELTA</span>
+            <img src="/images/b125b038-4c52-4e07-9222-11ea329d6370.png" alt="NOVA DELTA" class="h-12 w-auto">
+            <span class="text-2xl font-bold bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 bg-clip-text text-transparent drop-shadow-xl">NOVA DELTA</span>
           </div>
           
           <!-- Navigation Links -->
-          <div class="hidden md:flex space-x-8">
-            <a href="#services" class="text-slate-700 hover:text-blue-600 transition-colors">Services</a>
-            <a href="#about" class="text-slate-700 hover:text-blue-600 transition-colors">About</a>
-            <a href="#contact" class="text-slate-700 hover:text-blue-600 transition-colors">Contact</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#services" class="text-slate-700 hover:text-blue-600 transition-colors duration-300 font-medium">Solutions</a>
+            <a href="#about" class="text-slate-700 hover:text-blue-600 transition-colors duration-300 font-medium">About</a>
+            <a href="#contact" class="text-slate-700 hover:text-blue-600 transition-colors duration-300 font-medium">Contact</a>
+            <button class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-6 py-2 rounded-lg font-medium hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 shadow-lg hover:shadow-xl">
+              Get Started
+            </button>
           </div>
           
-          <!-- CTA Button -->
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            Get Started
-          </button>
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button class="text-slate-700 hover:text-blue-600 transition-colors duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </nav>
@@ -28,93 +35,273 @@
     <!-- Hero Section -->
     <section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <!-- Background Elements -->
-      <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50"></div>
-      <div class="absolute inset-0 opacity-40">
-        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(156, 146, 172, 0.1) 1px, transparent 0); background-size: 60px 60px;"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+      <div class="absolute inset-0 opacity-30">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0); background-size: 60px 60px;" ref="heroPattern"></div>
       </div>
       
       <!-- Unique Geometric Shapes -->
-      <div class="absolute top-20 left-10 w-32 h-32 border-2 border-blue-200 rounded-full opacity-20 animate-spin-slow"></div>
-      <div class="absolute top-40 right-20 w-24 h-24 border-2 border-purple-200 transform rotate-45 opacity-20 animate-pulse"></div>
-      <div class="absolute bottom-20 left-1/4 w-20 h-20 border-2 border-green-200 rounded-full opacity-20 animate-bounce-slow"></div>
+      <div class="absolute top-20 left-10 w-32 h-32 border-2 border-blue-300 rounded-full opacity-30" ref="rotatingCircle"></div>
+      <div class="absolute top-40 right-20 w-24 h-24 border-2 border-indigo-400 transform rotate-45 opacity-30" ref="pulsingSquare"></div>
+      <div class="absolute bottom-20 left-1/4 w-20 h-20 border-2 border-purple-300 rounded-full opacity-30" ref="bouncingCircle"></div>
+      
+      <!-- Creative Color Accents -->
+      <div class="absolute top-32 left-1/3 w-16 h-16 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full opacity-40 blur-sm" ref="creativeAccent1"></div>
+      <div class="absolute top-48 right-1/4 w-12 h-12 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-35 blur-sm" ref="creativeAccent2"></div>
+      <div class="absolute bottom-32 right-1/3 w-20 h-20 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full opacity-30 blur-sm" ref="creativeAccent3"></div>
       
       <div class="relative max-w-7xl mx-auto text-center">
         <div class="mb-12">
           <!-- Animated Badge with Micro-interactions -->
-          <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 text-sm font-medium mb-8 animate-fade-in-up group cursor-pointer hover:scale-105 transition-all duration-500 ease-out hover:shadow-lg">
-            <span class="w-3 h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mr-3 animate-pulse group-hover:animate-spin transition-all duration-700 ease-out"></span>
-            <span class="group-hover:text-purple-700 transition-colors duration-500 ease-out">AI Innovation Experts</span>
-            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-500 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-blue-800 text-sm font-medium mb-8 group cursor-pointer border border-blue-200" ref="animatedBadge">
+            <span class="w-3 h-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mr-3" ref="badgeDot"></span>
+            <span class="group-hover:text-blue-900 transition-colors duration-300">LLM Consultancy & Implementation</span>
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" ref="badgeArrow">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </div>
           
-          <h1 class="text-6xl md:text-8xl font-black text-slate-900 mb-8 leading-tight">
-            Transform Your Business with
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 animate-gradient-x relative group cursor-pointer">
-              AI Innovation
-              <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 ease-out origin-left"></span>
+          <h1 class="text-4xl sm:text-6xl md:text-8xl font-black text-slate-900 mb-8 leading-tight" ref="heroTitle">
+            Unlock Business Potential with
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 relative group cursor-pointer drop-shadow-2xl filter brightness-110">
+              LLM Solutions
+              <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-800 to-indigo-900 transform scale-x-0 origin-left" ref="titleUnderline"></span>
             </span>
           </h1>
-          <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12">
-            We help forward-thinking companies harness the power of Large Language Models 
-            to drive <span class="font-semibold text-slate-800 hover:text-blue-600 transition-colors duration-500 ease-out cursor-pointer">innovation</span>, 
-            <span class="font-semibold text-slate-800 hover:text-purple-600 transition-colors duration-500 ease-out cursor-pointer">efficiency</span>, and 
-            <span class="font-semibold text-slate-800 hover:text-indigo-600 transition-colors duration-500 ease-out cursor-pointer">competitive advantage</span>.
+          <p class="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12" ref="heroDescription">
+            We help businesses transform their operations through strategic LLM implementation, 
+            delivering <span class="font-semibold text-emerald-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer">automation</span>, 
+            <span class="font-semibold text-orange-700 hover:text-orange-600 transition-colors duration-300 cursor-pointer">compliance</span>, and 
+            <span class="font-semibold text-violet-700 hover:text-violet-600 transition-colors duration-300 cursor-pointer">secure solutions</span> that drive growth.
           </p>
         </div>
         
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <button class="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-700 ease-out transform hover:scale-105 hover:shadow-2xl shadow-lg relative overflow-hidden">
-            <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1200 ease-out"></span>
+          <button class="group bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg relative overflow-hidden" ref="primaryButton">
+            <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full" ref="buttonShimmer"></span>
             <span class="relative flex items-center">
-              Start Your AI Journey
-              <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              Transform Your Business
+              <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" ref="primaryButtonArrow">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
             </span>
           </button>
-          <button class="group border-2 border-slate-300 text-slate-700 px-12 py-5 rounded-2xl text-lg font-bold hover:border-blue-600 hover:text-blue-600 transition-all duration-700 ease-out hover:shadow-xl relative overflow-hidden">
-            <span class="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-blue-50/50 to-blue-50/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1200 ease-out"></span>
+          <button class="group border-2 border-blue-300 text-blue-700 px-12 py-5 rounded-2xl text-lg font-bold hover:border-indigo-500 hover:text-indigo-600 hover:bg-blue-50 transition-all duration-300 hover:shadow-xl relative overflow-hidden" ref="secondaryButton">
+            <span class="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-blue-100/50 to-blue-50/0 transform -skew-x-12 -translate-x-full" ref="secondaryButtonShimmer"></span>
             <span class="relative flex items-center">
-              <svg class="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" ref="secondaryButtonIcon">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              Watch Demo
+              Explore Solutions
             </span>
           </button>
         </div>
         
         <!-- Enhanced Stats with Micro-animations -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="text-center group cursor-pointer hover:scale-105 transition-transform duration-600 ease-out">
-            <div class="text-4xl font-bold text-blue-600 mb-2 group-hover:scale-110 transition-transform duration-600 ease-out">500+</div>
-            <div class="text-slate-600 group-hover:text-blue-700 transition-colors duration-500 ease-out">Projects Delivered</div>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out origin-center"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="text-center group cursor-pointer bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-blue-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-300" ref="stat1">
+            <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 mb-2" ref="stat1Number">85%</div>
+            <div class="text-slate-600 group-hover:text-emerald-700 transition-colors duration-300">Cost Reduction</div>
+            <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto mt-3 transform scale-x-0 origin-center" ref="stat1Underline"></div>
           </div>
-          <div class="text-center group cursor-pointer hover:scale-105 transition-transform duration-600 ease-out">
-            <div class="text-4xl font-bold text-purple-600 mb-2 group-hover:scale-110 transition-transform duration-600 ease-out">98%</div>
-            <div class="text-slate-600 group-hover:text-purple-700 transition-colors duration-500 ease-out">Client Satisfaction</div>
-            <div class="w-16 h-1 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out origin-center"></div>
+          <div class="text-center group cursor-pointer bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-blue-100 hover:border-orange-300 hover:shadow-lg transition-all duration-300" ref="stat2">
+            <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-500 to-red-500 mb-2" ref="stat2Number">100%</div>
+            <div class="text-slate-600 group-hover:text-orange-700 transition-colors duration-300">Compliance Rate</div>
+            <div class="w-16 h-1 bg-gradient-to-r from-orange-500 to-red-400 mx-auto mt-3 transform scale-x-0 origin-center" ref="stat2Underline"></div>
           </div>
-          <div class="text-center group cursor-pointer hover:scale-105 transition-transform duration-600 ease-out">
-            <div class="text-4xl font-bold text-green-600 mb-2 group-hover:scale-110 transition-transform duration-600 ease-out">24/7</div>
-            <div class="text-slate-600 group-hover:text-green-700 transition-colors duration-500 ease-out">Support Available</div>
-            <div class="w-16 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out origin-center"></div>
+          <div class="text-center group cursor-pointer bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-blue-100 hover:border-violet-300 hover:shadow-lg transition-all duration-300" ref="stat3">
+            <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-violet-500 to-purple-500 mb-2" ref="stat3Number">90%</div>
+            <div class="text-slate-600 group-hover:text-violet-700 transition-colors duration-300">Time Savings</div>
+            <div class="w-16 h-1 bg-gradient-to-r from-violet-500 to-purple-400 mx-auto mt-3 transform scale-x-0 origin-center" ref="stat3Underline"></div>
           </div>
         </div>
       </div>
       
       <!-- Enhanced Floating Elements with Unique Patterns -->
-      <div class="absolute top-20 left-10 w-24 h-24 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-float blur-xl"></div>
-      <div class="absolute top-40 right-20 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-20 animate-float-delayed blur-xl"></div>
-      <div class="absolute bottom-20 left-1/4 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-20 animate-float-slow blur-xl"></div>
+      <div class="absolute top-20 left-10 w-24 h-24 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full opacity-30 blur-xl" ref="floatingElement1"></div>
+      <div class="absolute top-40 right-20 w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full opacity-30 blur-xl" ref="floatingElement2"></div>
+      <div class="absolute bottom-20 left-1/4 w-16 h-16 bg-gradient-to-r from-purple-400 to-blue-500 rounded-full opacity-30 blur-xl" ref="floatingElement3"></div>
       
       <!-- Unique Corner Accents -->
-      <div class="absolute top-0 left-0 w-32 h-32 border-l-4 border-t-4 border-blue-300 opacity-30"></div>
-      <div class="absolute top-0 right-0 w-32 h-32 border-r-4 border-t-4 border-purple-300 opacity-30"></div>
-      <div class="absolute bottom-0 left-0 w-32 h-32 border-l-4 border-b-4 border-green-300 opacity-30"></div>
-      <div class="absolute bottom-0 right-0 w-32 h-32 border-r-4 border-b-4 border-indigo-300 opacity-30"></div>
+      <div class="absolute top-0 left-0 w-32 h-32 border-l-4 border-t-4 border-blue-400 opacity-40" ref="cornerAccent1"></div>
+      <div class="absolute top-0 right-0 w-32 h-32 border-r-4 border-t-4 border-indigo-500 opacity-40" ref="cornerAccent2"></div>
+      <div class="absolute bottom-0 left-0 w-32 h-32 border-l-4 border-b-4 border-purple-400 opacity-40" ref="cornerAccent3"></div>
+      <div class="absolute bottom-0 right-0 w-32 h-32 border-r-4 border-b-4 border-blue-500 opacity-40" ref="cornerAccent4"></div>
+    </section>
+
+    <!-- LLM Benefits Section - Creative Zigzag Layout -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden" ref="benefitsSection">
+      <!-- Animated Background Particles -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute w-2 h-2 bg-emerald-400 rounded-full opacity-60" style="top: 10%; left: 10%;" ref="particle1"></div>
+        <div class="absolute w-3 h-3 bg-orange-400 rounded-full opacity-40" style="top: 30%; right: 20%;" ref="particle2"></div>
+        <div class="absolute w-2 h-2 bg-violet-400 rounded-full opacity-50" style="bottom: 40%; left: 30%;" ref="particle3"></div>
+        <div class="absolute w-4 h-4 bg-blue-400 rounded-full opacity-30" style="bottom: 20%; right: 15%;" ref="particle4"></div>
+        <div class="absolute w-1 h-1 bg-teal-400 rounded-full opacity-70" style="top: 60%; left: 70%;" ref="particle5"></div>
+        <div class="absolute w-3 h-3 bg-rose-400 rounded-full opacity-35" style="top: 80%; right: 40%;" ref="particle6"></div>
+      </div>
+      
+      <!-- Flowing Line Background -->
+      <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1200 800" ref="flowingLines">
+        <path d="M0,400 Q300,200 600,400 T1200,400" stroke="url(#gradient1)" stroke-width="2" fill="none" ref="flowPath1"/>
+        <path d="M0,300 Q400,500 800,300 T1200,300" stroke="url(#gradient2)" stroke-width="2" fill="none" ref="flowPath2"/>
+        <defs>
+          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3b82f6"/>
+            <stop offset="50%" stop-color="#8b5cf6"/>
+            <stop offset="100%" stop-color="#06b6d4"/>
+          </linearGradient>
+          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#10b981"/>
+            <stop offset="50%" stop-color="#f59e0b"/>
+            <stop offset="100%" stop-color="#ef4444"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-20" ref="benefitsHeader">
+          <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100/80 via-purple-100/80 to-teal-100/80 backdrop-blur-sm border border-blue-200/50 text-blue-800 text-sm font-medium mb-8">
+            <span class="w-3 h-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mr-3 animate-pulse"></span>
+            The Power of LLMs
+          </div>
+          <h2 class="text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-tight">
+            Transform Your Business
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600">Operations</span>
+          </h2>
+          <p class="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Large Language Models revolutionize how businesses operate, offering unprecedented 
+            <span class="font-semibold text-emerald-600">automation capabilities</span> and 
+            <span class="font-semibold text-violet-600">intelligent decision-making</span> support.
+          </p>
+        </div>
+        
+        <!-- Creative Asymmetrical Layout -->
+        <div class="space-y-16">
+          <!-- First Row - Left Emphasis -->
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8">
+              <div class="bg-gradient-to-br from-white via-emerald-50 to-white p-8 lg:p-12 rounded-3xl shadow-2xl border border-emerald-100 hover:border-emerald-300 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-emerald-200/50" ref="benefit1">
+                <div class="flex items-start space-x-6">
+                  <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 transform rotate-3">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Intelligent Task Automation</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-4">
+                      Eliminate repetitive workflows and focus your team on strategic initiatives. Our LLM solutions 
+                      can handle complex document processing, data analysis, and decision-making tasks.
+                    </p>
+                    <div class="flex items-center text-emerald-600 font-semibold">
+                      <span>Up to 85% time savings</span>
+                      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-4 flex justify-center">
+              <div class="w-48 h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center" ref="benefit1Visual">
+                <div class="w-32 h-32 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Second Row - Right Emphasis -->
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 flex justify-center lg:order-1">
+              <div class="w-48 h-48 bg-gradient-to-br from-orange-100 to-orange-200 rounded-3xl flex items-center justify-center transform -rotate-6" ref="benefit2Visual">
+                <div class="w-32 h-32 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-8 lg:order-2">
+              <div class="bg-gradient-to-bl from-white via-orange-50 to-white p-8 lg:p-12 rounded-3xl shadow-2xl border border-orange-100 hover:border-orange-300 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-orange-200/50" ref="benefit2">
+                <div class="flex items-start space-x-6">
+                  <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Operational Excellence</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-4">
+                      Streamline operations and accelerate decision-making processes with intelligent insights. 
+                      Our solutions provide real-time analytics and predictive recommendations.
+                    </p>
+                    <div class="flex items-center text-orange-600 font-semibold">
+                      <span>3x faster decisions</span>
+                      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-700 rounded-2xl flex items-center justify-center flex-shrink-0 transform -rotate-3">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Third & Fourth Row - Side by Side Creative Cards -->
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Security Card with Hexagon -->
+            <div class="relative" ref="benefit3">
+              <div class="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-violet-200 to-violet-400 opacity-20 transform rotate-45 rounded-2xl"></div>
+              <div class="relative bg-gradient-to-tr from-violet-50 via-white to-violet-50 p-8 rounded-3xl shadow-xl border border-violet-200 hover:border-violet-400 transition-all duration-500 hover:shadow-violet-200/50">
+                <div class="flex items-center justify-between mb-6">
+                  <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-3xl font-bold text-violet-600">100%</div>
+                    <div class="text-sm text-violet-500">Secure</div>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Enterprise Security</h3>
+                <p class="text-slate-600">
+                  Maintain the highest security standards with end-to-end encryption, 
+                  compliance monitoring, and zero-trust architecture.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Growth Card with Dynamic Shape -->
+            <div class="relative" ref="benefit4">
+              <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-200 to-blue-400 opacity-20 rounded-full"></div>
+              <div class="relative bg-gradient-to-bl from-blue-50 via-white to-blue-50 p-8 rounded-3xl shadow-xl border border-blue-200 hover:border-blue-400 transition-all duration-500 hover:shadow-blue-200/50">
+                <div class="flex items-center justify-between mb-6">
+                  <div class="text-left">
+                    <div class="text-3xl font-bold text-blue-600">5x</div>
+                    <div class="text-sm text-blue-500">Growth</div>
+                  </div>
+                  <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center transform rotate-12">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Scalable Growth</h3>
+                <p class="text-slate-600">
+                  Expand your capabilities exponentially without proportional resource increases. 
+                  AI-powered solutions that grow with your business.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Services Section -->
@@ -125,252 +312,508 @@
       </div>
       
       <!-- Unique Background Elements -->
-      <div class="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-br from-green-100 to-blue-100 rounded-full opacity-20 blur-3xl animate-pulse delay-1000"></div>
+      <div class="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200 via-indigo-100 to-purple-200 rounded-full opacity-20 blur-3xl" ref="servicesBg1"></div>
+      <div class="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-br from-emerald-200 via-teal-100 to-blue-200 rounded-full opacity-20 blur-3xl" ref="servicesBg2"></div>
+      
+      <!-- Creative Floating Accents -->
+      <div class="absolute top-40 left-1/4 w-16 h-16 bg-gradient-to-r from-emerald-300 to-teal-400 rounded-full opacity-25 blur-lg" ref="servicesAccent1"></div>
+      <div class="absolute bottom-40 right-1/4 w-12 h-12 bg-gradient-to-r from-orange-300 to-red-400 rounded-full opacity-20 blur-lg" ref="servicesAccent2"></div>
       
       <div class="relative max-w-7xl mx-auto">
         <div class="text-center mb-20">
-          <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 text-sm font-medium mb-8 group cursor-pointer hover:scale-105 transition-all duration-500 ease-out">
-            <span class="w-3 h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mr-3 animate-pulse group-hover:animate-spin transition-all duration-700 ease-out"></span>
+          <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-blue-800 text-sm font-medium mb-8 group cursor-pointer border border-blue-200" ref="servicesBadge">
+            <span class="w-3 h-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mr-3" ref="servicesBadgeDot"></span>
             What We Offer
-            <svg class="w-4 h-4 ml-3 group-hover:rotate-12 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" ref="servicesBadgeArrow">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </div>
-          <h2 class="text-5xl font-black text-slate-900 mb-6">
-            Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 relative group cursor-pointer">
+          <h2 class="text-5xl font-black text-slate-900 mb-6" ref="servicesTitle">
+            Our             <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 relative group cursor-pointer drop-shadow-xl filter brightness-110">
               Services
-              <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 ease-out origin-left"></span>
+              <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-800 to-indigo-900 transform scale-x-0 origin-left" ref="servicesTitleUnderline"></span>
             </span>
           </h2>
-          <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive LLM solutions tailored to your business needs, delivered with expertise and precision.
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed" ref="servicesDescription">
+            Expert LLM consultancy and implementation services that automate workflows, ensure compliance, and drive business transformation.
           </p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Consultancy -->
-          <div class="group bg-white p-8 rounded-3xl border border-slate-200 hover:border-blue-300 hover:shadow-2xl transition-all duration-700 ease-out transform hover:-translate-y-2 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></div>
-            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-1000 ease-out blur-xl"></div>
-            <div class="relative">
-              <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-600 ease-out shadow-lg group-hover:shadow-blue-200 group-hover:shadow-2xl">
-                <svg class="w-10 h-10 text-white group-hover:rotate-12 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
+        <!-- Creative Asymmetrical Services Layout -->
+        <div class="relative">
+          <!-- Large Feature Service Card -->
+          <div class="grid lg:grid-cols-12 gap-8 mb-12">
+            <div class="lg:col-span-8">
+              <div class="group bg-gradient-to-br from-white via-emerald-50 to-emerald-100 p-12 rounded-[3rem] border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 relative overflow-hidden shadow-xl" ref="consultancyCard">
+                <!-- Decorative Elements -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-emerald-300 to-teal-400 rounded-full opacity-20 blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+                <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-gradient-to-tr from-emerald-200 to-emerald-400 opacity-30 transform rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
+                
+                <div class="relative z-10">
+                  <div class="flex items-start space-x-8">
+                    <!-- Creative Icon Design -->
+                    <div class="relative">
+                      <div class="w-24 h-24 bg-gradient-to-br from-emerald-600 to-teal-700 hexagon flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-2xl" ref="consultancyIcon">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                      </div>
+                      <!-- Orbit Ring -->
+                      <div class="absolute inset-0 w-32 h-32 border-2 border-emerald-300 rounded-full opacity-30 animate-spin" style="animation-duration: 20s;"></div>
+                    </div>
+                    
+                    <div class="flex-1">
+                      <div class="flex items-center space-x-4 mb-4">
+                        <h3 class="text-3xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors duration-300">Strategic Consulting</h3>
+                        <span class="px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-bold rounded-full">POPULAR</span>
+                      </div>
+                      <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Expert guidance on LLM strategy, compliance frameworks, and automation opportunities. 
+                        We assess your needs and create tailored roadmaps for successful implementation with 
+                        comprehensive risk analysis and ROI projections.
+                      </p>
+                      <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center space-x-2">
+                          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          <span class="text-slate-600">Strategy Development</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          <span class="text-slate-600">Risk Assessment</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          <span class="text-slate-600">ROI Analysis</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          <span class="text-slate-600">Compliance Review</span>
+                        </div>
+                      </div>
+                      <button class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-2xl font-bold hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-emerald-200" ref="consultancyArrow">
+                        Start Consultation
+                        <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors duration-500 ease-out">Consultancy</h3>
-              <p class="text-slate-600 leading-relaxed mb-6">
-                Strategic guidance and expert advice to help you identify AI opportunities, assess feasibility, and develop implementation roadmaps.
-              </p>
-              <div class="flex items-center text-blue-600 font-semibold group-hover:translate-x-2 transition-transform duration-600 ease-out">
-                Learn More
-                <svg class="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
+            </div>
+            
+            <!-- Side Stats Card -->
+            <div class="lg:col-span-4">
+              <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 h-full flex flex-col justify-center">
+                <h4 class="text-xl font-bold text-slate-900 mb-6">Consulting Impact</h4>
+                <div class="space-y-6">
+                  <div class="text-center">
+                    <div class="text-4xl font-black text-emerald-600 mb-2">85%</div>
+                    <div class="text-slate-600">Cost Reduction</div>
+                    <div class="w-full bg-emerald-100 rounded-full h-2 mt-2">
+                      <div class="bg-emerald-600 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-4xl font-black text-orange-600 mb-2">6M</div>
+                    <div class="text-slate-600">Implementation Time</div>
+                    <div class="w-full bg-orange-100 rounded-full h-2 mt-2">
+                      <div class="bg-orange-600 h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-4xl font-black text-violet-600 mb-2">100%</div>
+                    <div class="text-slate-600">Success Rate</div>
+                    <div class="w-full bg-violet-100 rounded-full h-2 mt-2">
+                      <div class="bg-violet-600 h-2 rounded-full" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
-          <!-- Training -->
-          <div class="group bg-white p-8 rounded-3xl border border-slate-200 hover:border-purple-300 hover:shadow-2xl transition-all duration-700 ease-out transform hover:-translate-y-2 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></div>
-            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-1000 ease-out blur-xl"></div>
-            <div class="relative">
-              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-600 ease-out shadow-lg group-hover:shadow-purple-200 group-hover:shadow-2xl">
-                <svg class="w-10 h-10 text-white group-hover:rotate-12 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 5.477 5.754 5 7.5 5c1.746 0 3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253"></path>
-                </svg>
+          <!-- Two Column Asymmetric Cards -->
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Security & Compliance Card -->
+            <div class="group bg-gradient-to-tr from-orange-50 via-white to-red-50 p-8 rounded-3xl border-2 border-orange-200 hover:border-orange-400 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden shadow-lg" ref="trainingCard">
+              <!-- Geometric Background -->
+              <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-200 to-orange-400 opacity-20 diamond group-hover:rotate-45 transition-transform duration-700"></div>
+              
+              <div class="relative z-10">
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-300 shadow-lg" ref="trainingIcon">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors duration-300">Security & Compliance</h3>
+                    <span class="text-orange-600 text-sm font-semibold">Enterprise Ready</span>
+                  </div>
+                </div>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                  Comprehensive security assessments, compliance auditing, and governance frameworks to ensure your LLM solutions meet regulatory requirements and industry standards.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-6 text-sm">
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-slate-600">GDPR Compliance</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-slate-600">SOC 2 Auditing</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-slate-600">Data Encryption</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-slate-600">Risk Assessment</span>
+                  </div>
+                </div>
+                <div class="flex items-center text-orange-600 font-semibold group-hover:translate-x-2 transition-transform duration-300" ref="trainingArrow">
+                  Learn More
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
               </div>
-              <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-purple-600 transition-colors duration-500 ease-out">Training</h3>
-              <p class="text-slate-600 leading-relaxed mb-6">
-                Comprehensive training programs to upskill your team in LLM technologies, best practices, and implementation strategies.
-              </p>
-              <div class="flex items-center text-purple-600 font-semibold group-hover:translate-x-2 transition-transform duration-600 ease-out">
-                Learn More
-                <svg class="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
+            </div>
+            
+            <!-- Implementation Card -->
+            <div class="group bg-gradient-to-bl from-violet-50 via-white to-purple-50 p-8 rounded-3xl border-2 border-violet-200 hover:border-violet-400 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden shadow-lg" ref="implementationCard">
+              <!-- Blob Background -->
+              <div class="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-violet-200 to-purple-400 opacity-20 blob group-hover:scale-110 transition-transform duration-700"></div>
+              
+              <div class="relative z-10">
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg" ref="implementationIcon">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-slate-900 group-hover:text-violet-600 transition-colors duration-300">Custom Implementation</h3>
+                    <span class="text-violet-600 text-sm font-semibold">Full-Stack Solution</span>
+                  </div>
+                </div>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                  Full-scale LLM solution development and deployment. From workflow automation to custom integrations, we deliver production-ready solutions tailored to your business.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-600 text-sm">Custom Development</span>
+                    <div class="flex space-x-1">
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-300 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-600 text-sm">System Integration</span>
+                    <div class="flex space-x-1">
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-600 text-sm">Deployment Support</span>
+                    <div class="flex space-x-1">
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-300 rounded-full"></div>
+                      <div class="w-2 h-2 bg-violet-300 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center text-violet-600 font-semibold group-hover:translate-x-2 transition-transform duration-300" ref="implementationArrow">
+                  Get Started
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
-          
-          <!-- Implementation -->
-          <div class="group bg-white p-8 rounded-3xl border border-slate-200 hover:border-green-300 hover:shadow-2xl transition-all duration-700 ease-out transform hover:-translate-y-2 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></div>
-            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-1000 ease-out blur-xl"></div>
-            <div class="relative">
-              <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-600 ease-out shadow-lg group-hover:shadow-green-200 group-hover:shadow-2xl">
-                <svg class="w-10 h-10 text-white group-hover:rotate-12 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-green-600 transition-colors duration-500 ease-out">Implementation</h3>
-              <p class="text-slate-600 leading-relaxed mb-6">
-                End-to-end implementation services including custom development, integration, deployment, and ongoing support.
-              </p>
-              <div class="flex items-center text-green-600 font-semibold group-hover:translate-x-2 transition-transform duration-600 ease-out">
-                Learn More
-                <svg class="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-600 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-indigo-50 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-6">LLM Applications Across Industries</h2>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+            Our solutions drive transformation across diverse business functions and industry sectors.
+          </p>
+        </div>
+        
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-3xl border border-emerald-100 hover:border-emerald-300 hover:shadow-2xl transition-all duration-300">
+            <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a1 1 0 001.41 0L21 7M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
             </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Document Processing</h3>
+            <p class="text-slate-600">Automated contract analysis, report generation, and regulatory document processing with intelligent extraction and classification.</p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-3xl border border-orange-100 hover:border-orange-300 hover:shadow-2xl transition-all duration-300">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Customer Support</h3>
+            <p class="text-slate-600">Intelligent chatbots and support automation that handle complex queries while maintaining compliance standards.</p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-3xl border border-violet-100 hover:border-violet-300 hover:shadow-2xl transition-all duration-300">
+            <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-700 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Data Analysis</h3>
+            <p class="text-slate-600">Transform raw business data into actionable insights with natural language querying and automated reporting.</p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-3xl border border-blue-100 hover:border-blue-300 hover:shadow-2xl transition-all duration-300">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Content Creation</h3>
+            <p class="text-slate-600">Generate technical documentation, marketing materials, and compliance reports with consistent brand voice.</p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-3xl border border-teal-100 hover:border-teal-300 hover:shadow-2xl transition-all duration-300">
+            <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-700 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Process Optimization</h3>
+            <p class="text-slate-600">Identify bottlenecks and optimize workflows through intelligent process analysis and recommendations.</p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-3xl border border-rose-100 hover:border-rose-300 hover:shadow-2xl transition-all duration-300">
+            <div class="w-16 h-16 bg-gradient-to-br from-rose-500 to-rose-700 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Compliance Monitoring</h3>
+            <p class="text-slate-600">Real-time compliance tracking and automated regulatory reporting across multiple frameworks and jurisdictions.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+      <!-- Creative Background Accents -->
+      <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-emerald-200 to-teal-300 rounded-full opacity-25 blur-2xl" ref="aboutAccent1"></div>
+      <div class="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-orange-200 to-red-300 rounded-full opacity-20 blur-2xl" ref="aboutAccent2"></div>
+      
       <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">About NOVA DELTA</h2>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+            We are specialists in Large Language Model implementation, helping businesses automate workflows, 
+            ensure regulatory compliance, and unlock the transformative potential of AI technology.
+          </p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="text-4xl font-bold text-slate-900 mb-6">
-              Why Choose NOVA DELTA?
-            </h2>
-            <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-              We're not just another AI consultancy. We're a team of passionate technologists, 
-              strategists, and business experts who understand that successful AI implementation 
-              requires more than just technical expertise.
+            <h3 class="text-2xl font-bold text-slate-900 mb-6">Why Choose Us?</h3>
+            <ul class="space-y-4 text-slate-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-emerald-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Expert LLM implementation with focus on workflow automation</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Comprehensive compliance and security framework expertise</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-violet-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Full-cycle support from strategy through implementation</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Tailored solutions for specific business use cases</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-white p-8 rounded-2xl shadow-lg relative overflow-hidden border border-blue-100">
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-full opacity-30 blur-xl"></div>
+            <h4 class="text-xl font-bold text-slate-900 mb-4">Our Approach</h4>
+            <p class="text-slate-600 mb-6">
+              We focus on practical LLM implementations that deliver measurable business value while 
+              maintaining the highest standards of security, compliance, and operational excellence.
             </p>
-            
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <span class="text-slate-700">Proven track record with Fortune 500 companies</span>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center p-4 bg-emerald-50 rounded-lg border border-emerald-100">
+                <div class="text-2xl font-bold text-emerald-600">50+</div>
+                <div class="text-sm text-slate-600">LLM Deployments</div>
               </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <span class="text-slate-700">End-to-end support from concept to deployment</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <span class="text-slate-700">Ongoing optimization and support</span>
+              <div class="text-center p-4 bg-orange-50 rounded-lg border border-orange-100">
+                <div class="text-2xl font-bold text-orange-600">100%</div>
+                <div class="text-sm text-slate-600">Compliance Rate</div>
               </div>
             </div>
           </div>
-          
-          <div class="relative">
-            <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-              <h3 class="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-              <p class="mb-6 text-blue-100">
-                Let's discuss how AI can transform your business operations and drive growth.
-              </p>
-              <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                Schedule a Consultation
-              </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance & Security Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-6">Enterprise-Grade Security & Compliance</h2>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+            Our LLM solutions are built with security-first principles and comprehensive compliance frameworks.
+          </p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
             </div>
+            <h3 class="text-lg font-bold text-white mb-2">GDPR Compliant</h3>
+            <p class="text-slate-300 text-sm">Full European data protection compliance</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">SOC 2 Certified</h3>
+            <p class="text-slate-300 text-sm">Rigorous security controls and auditing</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">End-to-End Encryption</h3>
+            <p class="text-slate-300 text-sm">Data protection at rest and in transit</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Zero Trust Architecture</h3>
+            <p class="text-slate-300 text-sm">Comprehensive security verification</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <!-- Creative Background Accents -->
+      <div class="absolute top-20 left-1/4 w-24 h-24 bg-gradient-to-r from-violet-200 to-purple-300 rounded-full opacity-25 blur-2xl" ref="contactAccent1"></div>
+      <div class="absolute bottom-20 right-1/4 w-20 h-20 bg-gradient-to-r from-emerald-200 to-teal-300 rounded-full opacity-20 blur-2xl" ref="contactAccent2"></div>
+      
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-slate-900 mb-4">
-          Let's Build Something Amazing Together
-        </h2>
-        <p class="text-xl text-slate-600 mb-12">
-          Ready to unlock the potential of AI in your business? Get in touch with our team.
+        <h2 class="text-4xl font-bold text-slate-900 mb-4">Ready to Transform Your Business?</h2>
+        <p class="text-xl text-slate-600 mb-8">
+          Let's explore how NOVA DELTA can automate your workflows and accelerate your growth with secure, compliant LLM solutions.
         </p>
-        
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-2">Email</h3>
-            <p class="text-slate-600">hello@novadelta.ai</p>
-          </div>
-          
-          <div class="text-center">
-            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-2">Phone</h3>
-            <p class="text-slate-600">+1 (555) 123-4567</p>
-          </div>
-          
-          <div class="text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-2">Location</h3>
-            <p class="text-slate-600">San Francisco, CA</p>
-          </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 shadow-lg hover:shadow-xl">
+            Book Strategy Session
+          </button>
+          <button class="border-2 border-blue-300 text-blue-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-indigo-500 hover:text-indigo-600 hover:bg-blue-50 transition-all duration-300">
+            Contact Us
+          </button>
         </div>
-        
-        <button class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
-          Start Your Project
-        </button>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 text-white py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div class="flex items-center space-x-4 mb-6">
               <img src="/images/b125b038-4c52-4e07-9222-11ea329d6370.png" alt="NOVA DELTA" class="h-10 w-auto">
-              <span class="text-xl font-bold text-white">NOVA DELTA</span>
+              <span class="text-xl font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">NOVA DELTA</span>
             </div>
-            <p class="text-slate-400">
-              Transforming businesses through AI innovation and strategic implementation.
+            <p class="text-slate-300">
+              Empowering businesses through secure, compliant LLM solutions that automate workflows and drive growth.
             </p>
           </div>
           
           <div>
-            <h4 class="text-lg font-semibold mb-4">Services</h4>
-            <ul class="space-y-2 text-slate-400">
-              <li><a href="#" class="hover:text-white transition-colors">Strategy & Consulting</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">Custom Development</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">Integration & Deployment</a></li>
+            <h3 class="text-lg font-semibold mb-4 text-blue-200">Services</h3>
+            <ul class="space-y-2 text-slate-300">
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Strategic Consulting</a></li>
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Security & Compliance</a></li>
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Custom Implementation</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 class="text-lg font-semibold mb-4">Company</h4>
-            <ul class="space-y-2 text-slate-400">
-              <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">Team</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+            <h3 class="text-lg font-semibold mb-4 text-blue-200">Industries</h3>
+            <ul class="space-y-2 text-slate-300">
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Financial Services</a></li>
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Healthcare</a></li>
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Technology</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 class="text-lg font-semibold mb-4">Connect</h4>
-            <ul class="space-y-2 text-slate-400">
-              <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+            <h3 class="text-lg font-semibold mb-4 text-blue-200">Resources</h3>
+            <ul class="space-y-2 text-slate-300">
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Case Studies</a></li>
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">Compliance Guide</a></li>
+              <li><a href="#" class="hover:text-blue-300 transition-colors duration-300">ROI Calculator</a></li>
             </ul>
           </div>
         </div>
         
-        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
+        <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400">
           <p>&copy; 2024 NOVA DELTA. All rights reserved.</p>
         </div>
       </div>
@@ -379,111 +822,810 @@
 </template>
 
 <script setup>
-// Component logic can be added here
+import { onMounted, ref } from 'vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+// Template refs for hero section
+const rotatingCircle = ref(null)
+const pulsingSquare = ref(null)
+const bouncingCircle = ref(null)
+const animatedBadge = ref(null)
+const badgeDot = ref(null)
+const badgeArrow = ref(null)
+const heroTitle = ref(null)
+const titleUnderline = ref(null)
+const heroDescription = ref(null)
+const primaryButton = ref(null)
+const buttonShimmer = ref(null)
+const primaryButtonArrow = ref(null)
+const secondaryButton = ref(null)
+const secondaryButtonShimmer = ref(null)
+const secondaryButtonIcon = ref(null)
+const stat1 = ref(null)
+const stat1Number = ref(null)
+const stat1Underline = ref(null)
+const stat2 = ref(null)
+const stat2Number = ref(null)
+const stat2Underline = ref(null)
+const stat3 = ref(null)
+const stat3Number = ref(null)
+const stat3Underline = ref(null)
+const floatingElement1 = ref(null)
+const floatingElement2 = ref(null)
+const floatingElement3 = ref(null)
+const cornerAccent1 = ref(null)
+const cornerAccent2 = ref(null)
+const cornerAccent3 = ref(null)
+const cornerAccent4 = ref(null)
+const servicesBg1 = ref(null)
+const servicesBg2 = ref(null)
+const servicesBadge = ref(null)
+const servicesBadgeDot = ref(null)
+const servicesBadgeArrow = ref(null)
+const servicesTitle = ref(null)
+const servicesTitleUnderline = ref(null)
+const servicesDescription = ref(null)
+const consultancyCard = ref(null)
+const consultancyIcon = ref(null)
+const consultancyArrow = ref(null)
+const trainingCard = ref(null)
+const trainingIcon = ref(null)
+const trainingArrow = ref(null)
+const implementationCard = ref(null)
+const implementationIcon = ref(null)
+const implementationArrow = ref(null)
+const aboutAccent1 = ref(null)
+const aboutAccent2 = ref(null)
+const contactAccent1 = ref(null)
+const contactAccent2 = ref(null)
+
+// Template refs for new creative sections
+const benefitsSection = ref(null)
+const benefitsHeader = ref(null)
+const benefit1 = ref(null)
+const benefit1Visual = ref(null)
+const benefit2 = ref(null)
+const benefit2Visual = ref(null)
+const benefit3 = ref(null)
+const benefit4 = ref(null)
+const particle1 = ref(null)
+const particle2 = ref(null)
+const particle3 = ref(null)
+const particle4 = ref(null)
+const particle5 = ref(null)
+const particle6 = ref(null)
+const flowingLines = ref(null)
+const flowPath1 = ref(null)
+const flowPath2 = ref(null)
+
+onMounted(() => {
+  // Initialize GSAP animations
+  initAnimations()
+  setupHoverAnimations()
+  setupScrollAnimations()
+  setupParticleAnimations()
+})
+
+const initAnimations = () => {
+  // Set initial states
+  gsap.set([heroTitle, heroDescription, animatedBadge, primaryButton, secondaryButton], { 
+    opacity: 0, 
+    y: 50 
+  })
+  
+  gsap.set([stat1, stat2, stat3], { 
+    opacity: 0, 
+    scale: 0.8 
+  })
+  
+  gsap.set([servicesTitle, servicesDescription, servicesBadge], { 
+    opacity: 0, 
+    y: 30 
+  })
+  
+  gsap.set([consultancyCard, trainingCard, implementationCard], { 
+    opacity: 0, 
+    y: 50 
+  })
+  
+  gsap.set([titleUnderline, servicesTitleUnderline], { 
+    scaleX: 0 
+  })
+  
+  gsap.set([stat1Underline, stat2Underline, stat3Underline], { 
+    scaleX: 0 
+  })
+
+  // Hero section entrance animation
+  const heroTl = gsap.timeline({ delay: 0.3 })
+  
+  heroTl
+    .to(heroTitle, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 1.2, 
+      ease: "power3.out" 
+    })
+    .to(heroDescription, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 1, 
+      ease: "power3.out" 
+    }, "-=0.8")
+    .to(animatedBadge, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      ease: "back.out(1.7)" 
+    }, "-=0.6")
+    .to([primaryButton, secondaryButton], { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      ease: "back.out(1.7)" 
+    }, "-=0.4")
+
+  // Stats entrance animation
+  gsap.to([stat1, stat2, stat3], {
+    opacity: 1,
+    scale: 1,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    stagger: 0.2,
+    delay: 1.5
+  })
+
+  // Services section entrance animation
+  const servicesTl = gsap.timeline({ 
+    scrollTrigger: { 
+      trigger: "#services", 
+      start: "top 80%" 
+    } 
+  })
+  
+  servicesTl
+    .to(servicesBadge, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      ease: "back.out(1.7)" 
+    })
+    .to(servicesTitle, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      ease: "power3.out" 
+    }, "-=0.4")
+    .to(servicesDescription, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      ease: "power3.out" 
+    }, "-=0.6")
+    .to([consultancyCard, trainingCard, implementationCard], { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      ease: "back.out(1.7)" 
+    }, "-=0.4")
+
+  // Background element animations
+  gsap.to(rotatingCircle, {
+    rotation: 360,
+    duration: 20,
+    ease: "none",
+    repeat: -1
+  })
+
+  gsap.to(pulsingSquare, {
+    scale: 1.2,
+    duration: 2,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  })
+
+  gsap.to(bouncingCircle, {
+    y: -20,
+    duration: 3,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  })
+
+  // Floating elements
+  gsap.to(floatingElement1, {
+    y: -30,
+    duration: 6,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  })
+
+  gsap.to(floatingElement2, {
+    y: -25,
+    duration: 8,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true,
+    delay: 1
+  })
+
+  gsap.to(floatingElement3, {
+    y: -15,
+    duration: 10,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true,
+    delay: 2
+  })
+
+  // Background pulsing
+  gsap.to([servicesBg1, servicesBg2], {
+    scale: 1.1,
+    duration: 4,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true,
+    stagger: 2
+  })
+
+  // Badge dot pulsing
+  gsap.to(badgeDot, {
+    scale: 1.3,
+    duration: 1.5,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  })
+
+  gsap.to(servicesBadgeDot, {
+    scale: 1.3,
+    duration: 1.5,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  })
+}
+
+const setupHoverAnimations = () => {
+  // Badge hover animations
+  animatedBadge.value.addEventListener('mouseenter', () => {
+    gsap.to(badgeDot.value, {
+      rotation: 360,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    
+    gsap.to(badgeArrow.value, {
+      x: 8,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  animatedBadge.value.addEventListener('mouseleave', () => {
+    gsap.to(badgeArrow.value, {
+      x: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  // Services badge hover animations
+  servicesBadge.value.addEventListener('mouseenter', () => {
+    gsap.to(servicesBadgeDot.value, {
+      rotation: 360,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    
+    gsap.to(servicesBadgeArrow.value, {
+      rotation: 12,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  servicesBadge.value.addEventListener('mouseleave', () => {
+    gsap.to(servicesBadgeArrow.value, {
+      rotation: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  // Button hover animations
+  primaryButton.value.addEventListener('mouseenter', () => {
+    gsap.to(buttonShimmer.value, {
+      x: "100%",
+      duration: 1.2,
+      ease: "power2.out"
+    })
+    
+    gsap.to(primaryButtonArrow.value, {
+      x: 8,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  primaryButton.value.addEventListener('mouseleave', () => {
+    gsap.to(buttonShimmer.value, {
+      x: "-100%",
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    
+    gsap.to(primaryButtonArrow.value, {
+      x: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  secondaryButton.value.addEventListener('mouseenter', () => {
+    gsap.to(secondaryButtonShimmer.value, {
+      x: "100%",
+      duration: 1.2,
+      ease: "power2.out"
+    })
+    
+    gsap.to(secondaryButtonIcon.value, {
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  secondaryButton.value.addEventListener('mouseleave', () => {
+    gsap.to(secondaryButtonShimmer.value, {
+      x: "-100%",
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    
+    gsap.to(secondaryButtonIcon.value, {
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  // Stats hover animations
+  stat1.value.addEventListener('mouseenter', () => {
+    gsap.to(stat1Number.value, {
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(stat1Underline.value, {
+      scaleX: 1,
+      duration: 0.6,
+      ease: "power2.out"
+    })
+  })
+
+  stat1.value.addEventListener('mouseleave', () => {
+    gsap.to(stat1Number.value, {
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(stat1Underline.value, {
+      scaleX: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  stat2.value.addEventListener('mouseenter', () => {
+    gsap.to(stat2Number.value, {
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(stat2Underline.value, {
+      scaleX: 1,
+      duration: 0.6,
+      ease: "power2.out"
+    })
+  })
+
+  stat2.value.addEventListener('mouseleave', () => {
+    gsap.to(stat2Number.value, {
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(stat2Underline.value, {
+      scaleX: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  stat3.value.addEventListener('mouseenter', () => {
+    gsap.to(stat3Number.value, {
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(stat3Underline.value, {
+      scaleX: 1,
+      duration: 0.6,
+      ease: "power2.out"
+    })
+  })
+
+  stat3.value.addEventListener('mouseleave', () => {
+    gsap.to(stat3Number.value, {
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(stat3Underline.value, {
+      scaleX: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  // Service card hover animations
+  consultancyCard.value.addEventListener('mouseenter', () => {
+    gsap.to(consultancyIcon.value, {
+      rotation: 12,
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(consultancyArrow.value, {
+      x: 8,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  consultancyCard.value.addEventListener('mouseleave', () => {
+    gsap.to(consultancyIcon.value, {
+      rotation: 0,
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(consultancyArrow.value, {
+      x: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  trainingCard.value.addEventListener('mouseenter', () => {
+    gsap.to(trainingIcon.value, {
+      rotation: 12,
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(trainingArrow.value, {
+      x: 8,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  trainingCard.value.addEventListener('mouseleave', () => {
+    gsap.to(trainingIcon.value, {
+      rotation: 0,
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(trainingArrow.value, {
+      x: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  implementationCard.value.addEventListener('mouseenter', () => {
+    gsap.to(implementationIcon.value, {
+      rotation: 12,
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(implementationArrow.value, {
+      x: 8,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  implementationCard.value.addEventListener('mouseleave', () => {
+    gsap.to(implementationIcon.value, {
+      rotation: 0,
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+    
+    gsap.to(implementationArrow.value, {
+      x: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  })
+
+  // Title underline hover animations
+  heroTitle.value.addEventListener('mouseenter', () => {
+    gsap.to(titleUnderline.value, {
+      scaleX: 1,
+      duration: 1,
+      ease: "power2.out"
+    })
+  })
+
+  heroTitle.value.addEventListener('mouseleave', () => {
+    gsap.to(titleUnderline.value, {
+      scaleX: 0,
+      duration: 0.6,
+      ease: "power2.out"
+    })
+  })
+
+  servicesTitle.value.addEventListener('mouseenter', () => {
+    gsap.to(servicesTitleUnderline.value, {
+      scaleX: 1,
+      duration: 1,
+      ease: "power2.out"
+    })
+  })
+
+  servicesTitle.value.addEventListener('mouseleave', () => {
+    gsap.to(servicesTitleUnderline.value, {
+      scaleX: 0,
+      duration: 0.6,
+      ease: "power2.out"
+    })
+  })
+}
+
+// New scroll-triggered animations
+const setupScrollAnimations = () => {
+  // Benefits section entrance
+  gsap.fromTo(benefitsHeader.value, 
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: benefitsSection.value,
+        start: "top 80%",
+        end: "top 20%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  )
+
+  // Benefit cards staggered animation
+  gsap.fromTo([benefit1.value, benefit2.value], 
+    { opacity: 0, x: -100, rotationY: -15 },
+    {
+      opacity: 1,
+      x: 0,
+      rotationY: 0,
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: benefit1.value,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  )
+
+  // Visual elements from opposite side
+  gsap.fromTo([benefit1Visual.value, benefit2Visual.value], 
+    { opacity: 0, x: 100, scale: 0.8 },
+    {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      duration: 1.2,
+      ease: "back.out(1.7)",
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: benefit1Visual.value,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  )
+
+  // Bottom cards with unique animations
+  gsap.fromTo(benefit3.value, 
+    { opacity: 0, y: 50, rotationX: 15 },
+    {
+      opacity: 1,
+      y: 0,
+      rotationX: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: benefit3.value,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  )
+
+  gsap.fromTo(benefit4.value, 
+    { opacity: 0, y: 50, rotationX: -15 },
+    {
+      opacity: 1,
+      y: 0,
+      rotationX: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: benefit4.value,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  )
+
+  // Flowing lines animation
+  if (flowPath1.value && flowPath2.value) {
+    gsap.set([flowPath1.value, flowPath2.value], { strokeDasharray: "1000 1000", strokeDashoffset: 1000 })
+    
+    gsap.to(flowPath1.value, {
+      strokeDashoffset: 0,
+      duration: 3,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: benefitsSection.value,
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+      }
+    })
+    
+    gsap.to(flowPath2.value, {
+      strokeDashoffset: 0,
+      duration: 3,
+      ease: "power2.inOut",
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: benefitsSection.value,
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+      }
+    })
+  }
+  
+  // Note: Use case animations can be added when use case section is implemented
+}
+
+// Particle animations
+const setupParticleAnimations = () => {
+  const particles = [particle1.value, particle2.value, particle3.value, particle4.value, particle5.value, particle6.value]
+  
+  particles.forEach((particle, index) => {
+    if (particle) {
+      // Float animation
+      gsap.to(particle, {
+        y: "-=20",
+        duration: 2 + (index * 0.3),
+        ease: "power2.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: index * 0.5
+      })
+      
+      // Subtle rotation
+      gsap.to(particle, {
+        rotation: 360,
+        duration: 10 + (index * 2),
+        ease: "none",
+        repeat: -1
+      })
+      
+      // Scale pulse
+      gsap.to(particle, {
+        scale: 1.5,
+        duration: 1.5 + (index * 0.2),
+        ease: "power2.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: (index * 0.3) + 1
+      })
+    }
+  })
+}
 </script>
 
 <style>
 @import "tailwindcss";
 
-/* Custom Animations */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes gradient-x {
-  0%, 100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes float-delayed {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out;
-}
-
-.animate-gradient-x {
-  animation: gradient-x 3s ease infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-delayed 8s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 10s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 3s ease-in-out infinite;
-}
-
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Creative layout utilities */
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Enhanced glow effects */
+.glow-emerald {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+.glow-orange {
+  box-shadow: 0 0 30px rgba(251, 146, 60, 0.3);
+}
+
+.glow-violet {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Floating animation for patterns */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-5deg); }
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.8), 0 0 60px rgba(16, 185, 129, 0.4); }
+}
+
+/* Morphing shape animation */
+@keyframes morphBlob {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+.animate-morph {
+  animation: morphBlob 8s ease-in-out infinite;
 }
 
 /* Custom scrollbar */
@@ -496,46 +1638,42 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  background: linear-gradient(to bottom, #475569, #64748b);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
-}
-
-/* Enhanced hover effects with smoother easing */
-.group:hover .group-hover\:scale-110 {
-  transform: scale(1.1);
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.group:hover .group-hover\:rotate-12 {
-  transform: rotate(12deg);
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.group:hover .group-hover\:translate-x-2 {
-  transform: translateX(0.5rem);
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.group:hover .group-hover\:scale-x-100 {
-  transform: scaleX(1);
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Smooth transitions for all elements */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-duration: 200ms;
+  background: linear-gradient(to bottom, #334155, #475569);
 }
 
 /* Enhanced focus states */
 button:focus, a:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #475569;
   outline-offset: 2px;
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .card-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet optimization */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
 }
 
 /* Custom selection color */
@@ -547,5 +1685,20 @@ button:focus, a:focus {
 ::-moz-selection {
   background-color: #3b82f6;
   color: white;
+}
+
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 </style>
