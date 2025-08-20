@@ -22,18 +22,42 @@
           
           <!-- Mobile menu button -->
           <div class="md:hidden">
-            <button class="text-slate-700 hover:text-blue-600 transition-colors duration-300">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button @click="toggleMobileMenu" class="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative z-50" ref="mobileMenuButton">
+              <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+              <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </button>
           </div>
         </div>
+        
+        <!-- Mobile Menu -->
+        <Transition
+          enter-active-class="transition-all duration-300 ease-out"
+          enter-from-class="opacity-0 transform -translate-y-4"
+          enter-to-class="opacity-100 transform translate-y-0"
+          leave-active-class="transition-all duration-200 ease-in"
+          leave-from-class="opacity-100 transform translate-y-0"
+          leave-to-class="opacity-0 transform -translate-y-4"
+        >
+          <div v-if="mobileMenuOpen" class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl border-t border-blue-100 md:hidden z-40" ref="mobileMenu">
+            <div class="px-4 py-6 space-y-4">
+              <a href="#services" @click="closeMobileMenu" class="block text-slate-700 hover:text-blue-600 transition-colors duration-300 font-medium py-3 px-4 rounded-lg hover:bg-blue-50">Solutions</a>
+              <a href="#about" @click="closeMobileMenu" class="block text-slate-700 hover:text-blue-600 transition-colors duration-300 font-medium py-3 px-4 rounded-lg hover:bg-blue-50">About</a>
+              <a href="#contact" @click="closeMobileMenu" class="block text-slate-700 hover:text-blue-600 transition-colors duration-300 font-medium py-3 px-4 rounded-lg hover:bg-blue-50">Contact</a>
+              <button @click="closeMobileMenu" class="w-full bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 shadow-lg hover:shadow-xl mt-4">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </Transition>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section class="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <!-- Background Elements -->
       <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
       <div class="absolute inset-0 opacity-30">
@@ -41,9 +65,9 @@
       </div>
       
       <!-- Unique Geometric Shapes -->
-      <div class="absolute top-20 left-10 w-32 h-32 border-2 border-blue-300 rounded-full opacity-30" ref="rotatingCircle"></div>
-      <div class="absolute top-40 right-20 w-24 h-24 border-2 border-indigo-400 transform rotate-45 opacity-30" ref="pulsingSquare"></div>
-      <div class="absolute bottom-20 left-1/4 w-20 h-20 border-2 border-purple-300 rounded-full opacity-30" ref="bouncingCircle"></div>
+      <div class="absolute top-20 left-4 sm:left-10 w-20 sm:w-32 h-20 sm:h-32 border-2 border-blue-300 rounded-full opacity-30" ref="rotatingCircle"></div>
+      <div class="absolute top-40 right-4 sm:right-20 w-16 sm:w-24 h-16 sm:h-24 border-2 border-indigo-400 transform rotate-45 opacity-30" ref="pulsingSquare"></div>
+      <div class="absolute bottom-20 left-1/4 w-16 sm:w-20 h-16 sm:h-20 border-2 border-purple-300 rounded-full opacity-30" ref="bouncingCircle"></div>
       
       <!-- Creative Color Accents -->
       <div class="absolute top-32 left-1/3 w-16 h-16 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full opacity-40 blur-sm" ref="creativeAccent1"></div>
@@ -61,14 +85,14 @@
             </svg>
           </div>
           
-          <h1 class="text-4xl sm:text-6xl md:text-8xl font-black text-slate-900 mb-8 leading-tight" ref="heroTitle">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-slate-900 mb-6 sm:mb-8 leading-tight" ref="heroTitle">
             Unlock Business Potential with
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 relative group cursor-pointer drop-shadow-2xl filter brightness-110">
               LLM Solutions
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-800 to-indigo-900 transform scale-x-0 origin-left" ref="titleUnderline"></span>
             </span>
           </h1>
-          <p class="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12" ref="heroDescription">
+          <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12 px-2 sm:px-0" ref="heroDescription">
             We help businesses transform their operations through strategic LLM implementation, 
             delivering <span class="font-semibold text-emerald-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer">automation</span>, 
             <span class="font-semibold text-orange-700 hover:text-orange-600 transition-colors duration-300 cursor-pointer">compliance</span>, and 
@@ -76,8 +100,8 @@
           </p>
         </div>
         
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <button class="group bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg relative overflow-hidden" ref="primaryButton">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4 sm:px-0">
+          <button class="group bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg relative overflow-hidden w-full sm:w-auto touch-target mobile-hover" ref="primaryButton">
             <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full" ref="buttonShimmer"></span>
             <span class="relative flex items-center">
               Transform Your Business
@@ -86,7 +110,7 @@
               </svg>
             </span>
           </button>
-          <button class="group border-2 border-blue-300 text-blue-700 px-12 py-5 rounded-2xl text-lg font-bold hover:border-indigo-500 hover:text-indigo-600 hover:bg-blue-50 transition-all duration-300 hover:shadow-xl relative overflow-hidden" ref="secondaryButton">
+          <button class="group border-2 border-blue-300 text-blue-700 px-8 sm:px-12 py-4 sm:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold hover:border-indigo-500 hover:text-indigo-600 hover:bg-blue-50 transition-all duration-300 hover:shadow-xl relative overflow-hidden w-full sm:w-auto touch-target mobile-hover" ref="secondaryButton">
             <span class="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-blue-100/50 to-blue-50/0 transform -skew-x-12 -translate-x-full" ref="secondaryButtonShimmer"></span>
             <span class="relative flex items-center">
               <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" ref="secondaryButtonIcon">
@@ -306,9 +330,34 @@
 
     <!-- Services Section -->
     <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-      <!-- Background Pattern -->
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0" style="background-image: linear-gradient(45deg, #3b82f6 25%, transparent 25%), linear-gradient(-45deg, #3b82f6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #3b82f6 75%), linear-gradient(-45deg, transparent 75%, #3b82f6 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
+      <!-- Animated playful background elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <!-- Floating geometric shapes -->
+        <div class="absolute top-20 left-10 w-8 h-8 border-2 border-blue-300 rounded-full opacity-40 animate-bounce" style="animation-duration: 3s; animation-delay: 0s;"></div>
+        <div class="absolute top-40 right-20 w-6 h-6 border-2 border-indigo-400 transform rotate-45 opacity-30 animate-pulse" style="animation-duration: 4s; animation-delay: 1s;"></div>
+        <div class="absolute bottom-32 left-1/4 w-4 h-4 bg-emerald-300 rounded-full opacity-40 animate-ping" style="animation-duration: 2s; animation-delay: 0.5s;"></div>
+        <div class="absolute top-32 right-1/3 w-10 h-10 border-2 border-purple-300 rounded-lg opacity-30 animate-spin" style="animation-duration: 8s;"></div>
+        <div class="absolute bottom-40 right-10 w-5 h-5 bg-orange-300 opacity-35 animate-bounce" style="animation-duration: 2.5s; animation-delay: 1.5s; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;"></div>
+        
+        <!-- Animated lines and paths -->
+        <svg class="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+            </linearGradient>
+          </defs>
+          <path class="animate-draw" d="M100,200 Q300,100 500,200 T900,200" stroke="url(#lineGradient)" stroke-width="2" fill="none" 
+                pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawPath 10s infinite linear;" />
+          <path class="animate-draw" d="M50,600 Q400,500 700,600 T950,600" stroke="url(#lineGradient)" stroke-width="2" fill="none" 
+                pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawPath 12s infinite linear; animation-delay: 2s;" />
+        </svg>
+        
+        <!-- Floating particles -->
+        <div class="absolute top-1/4 left-1/6 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-float"></div>
+        <div class="absolute top-1/3 right-1/5 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-40 animate-float" style="animation-delay: 1s; animation-duration: 4s;"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-3 h-3 bg-purple-400 rounded-full opacity-30 animate-float" style="animation-delay: 2s; animation-duration: 5s;"></div>
+        <div class="absolute bottom-1/3 right-1/6 w-2 h-2 bg-emerald-400 rounded-full opacity-45 animate-float" style="animation-delay: 3s; animation-duration: 3.5s;"></div>
       </div>
       
       <!-- Unique Background Elements -->
@@ -546,6 +595,125 @@
                   </svg>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LLM Solutions Showcase - Raycast Inspired -->
+    <section data-section="solutions" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-30 blur-3xl animate-pulse" style="top: 10%; left: 10%;"></div>
+        <div class="absolute w-64 h-64 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full opacity-20 blur-3xl animate-pulse" style="top: 60%; right: 20%;"></div>
+        <div class="absolute w-48 h-48 bg-gradient-to-r from-orange-400 to-red-500 rounded-full opacity-25 blur-3xl animate-pulse" style="bottom: 20%; left: 30%;"></div>
+      </div>
+      
+      <!-- Glassmorphic Pattern -->
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0); background-size: 40px 40px;"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-20">
+          <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 text-blue-100 text-sm font-medium mb-8">
+            <span class="w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mr-3 animate-pulse"></span>
+            Comprehensive LLM Solutions
+          </div>
+          <h2 data-animate="title" class="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight">
+            There is a 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400">solution</span>
+            <br>for that
+          </h2>
+          <p class="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+            Whatever your business challenge, we have the perfect LLM solution. From automation to analysis, 
+            compliance to creativity – we make it possible.
+          </p>
+        </div>
+
+        <!-- Solutions Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <!-- Document Intelligence -->
+          <div data-animate="card" class="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-emerald-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Document Intelligence</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Intelligent document processing, extraction, and analysis for contracts, reports, and compliance materials.</p>
+          </div>
+
+          <!-- Process Automation -->
+          <div data-animate="card" class="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-blue-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">Process Automation</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Streamline workflows and eliminate repetitive tasks with intelligent automation solutions.</p>
+          </div>
+
+          <!-- Smart Analytics -->
+          <div data-animate="card" class="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-purple-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Smart Analytics</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Transform data into insights with natural language querying and automated reporting.</p>
+          </div>
+
+          <!-- Compliance Guardian -->
+          <div data-animate="card" class="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-orange-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">Compliance Guardian</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Ensure regulatory compliance with automated monitoring and reporting solutions.</p>
+          </div>
+
+          <!-- Customer Intelligence -->
+          <div data-animate="card" class="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-teal-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-teal-500/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">Customer Intelligence</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Advanced chatbots and support automation that understand context and maintain compliance.</p>
+          </div>
+
+          <!-- Security Sentinel -->
+          <div data-animate="card" class="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-red-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-300 transition-colors">Security Sentinel</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Advanced threat detection and security analysis powered by intelligent LLM systems.</p>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+          <div class="inline-flex items-center space-x-4">
+            <button class="group bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-2xl font-bold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50">
+              <span class="flex items-center">
+                Explore All Solutions
+                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </span>
+            </button>
+            <div class="text-blue-200 text-sm">
+              <span class="font-semibold">150+</span> business problems solved
             </div>
           </div>
         </div>
@@ -818,6 +986,9 @@
         </div>
       </div>
     </footer>
+
+    <!-- Interactive Chat Interface -->
+    <ChatInterface />
   </div>
 </template>
 
@@ -825,8 +996,14 @@
 import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ChatInterface from '../components/ChatInterface.vue'
 
 gsap.registerPlugin(ScrollTrigger)
+
+// Mobile menu state
+const mobileMenuOpen = ref(false)
+const mobileMenuButton = ref(null)
+const mobileMenu = ref(null)
 
 // Template refs for hero section
 const rotatingCircle = ref(null)
@@ -907,13 +1084,49 @@ onMounted(() => {
   setupHoverAnimations()
   setupScrollAnimations()
   setupParticleAnimations()
+  
+  // Mobile menu click outside handler
+  const handleClickOutside = (event) => {
+    if (mobileMenuOpen.value && 
+        mobileMenu.value && 
+        !mobileMenu.value.contains(event.target) &&
+        !mobileMenuButton.value.contains(event.target)) {
+      closeMobileMenu()
+    }
+  }
+  
+  document.addEventListener('click', handleClickOutside)
+  
+  // Add mobile touch event listeners
+  if (window.innerWidth < 768) {
+    document.addEventListener('touchstart', handleTouchStart, { passive: true })
+    document.addEventListener('touchend', handleTouchEnd, { passive: true })
+  }
+  
+  // Cleanup
+  return () => {
+    document.removeEventListener('click', handleClickOutside)
+    document.removeEventListener('touchstart', handleTouchStart)
+    document.removeEventListener('touchend', handleTouchEnd)
+  }
 })
 
 const initAnimations = () => {
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const isMobile = window.innerWidth < 768
+  
+  // Adjust animation settings for mobile and accessibility
+  const animationSettings = {
+    duration: prefersReducedMotion ? 0.3 : (isMobile ? 0.6 : 1.2),
+    ease: prefersReducedMotion ? "none" : "power3.out",
+    stagger: prefersReducedMotion ? 0 : (isMobile ? 0.1 : 0.2)
+  }
+  
   // Set initial states
   gsap.set([heroTitle, heroDescription, animatedBadge, primaryButton, secondaryButton], { 
     opacity: 0, 
-    y: 50 
+    y: prefersReducedMotion ? 0 : (isMobile ? 20 : 50)
   })
   
   gsap.set([stat1, stat2, stat3], { 
@@ -940,33 +1153,34 @@ const initAnimations = () => {
   })
 
   // Hero section entrance animation
-  const heroTl = gsap.timeline({ delay: 0.3 })
+  const heroTl = gsap.timeline({ delay: prefersReducedMotion ? 0 : 0.3 })
   
   heroTl
     .to(heroTitle, { 
       opacity: 1, 
       y: 0, 
-      duration: 1.2, 
-      ease: "power3.out" 
+      duration: animationSettings.duration, 
+      ease: animationSettings.ease 
     })
     .to(heroDescription, { 
       opacity: 1, 
       y: 0, 
-      duration: 1, 
-      ease: "power3.out" 
-    }, "-=0.8")
+      duration: animationSettings.duration * 0.8, 
+      ease: animationSettings.ease 
+    }, prefersReducedMotion ? 0 : "-=0.8")
     .to(animatedBadge, { 
       opacity: 1, 
       y: 0, 
-      duration: 0.8, 
-      ease: "back.out(1.7)" 
-    }, "-=0.6")
+      duration: animationSettings.duration * 0.6, 
+      ease: prefersReducedMotion ? animationSettings.ease : "back.out(1.7)" 
+    }, prefersReducedMotion ? 0 : "-=0.6")
     .to([primaryButton, secondaryButton], { 
       opacity: 1, 
       y: 0, 
-      duration: 0.8, 
-      ease: "back.out(1.7)" 
-    }, "-=0.4")
+      duration: animationSettings.duration * 0.6, 
+      ease: prefersReducedMotion ? animationSettings.ease : "back.out(1.7)",
+      stagger: animationSettings.stagger 
+    }, prefersReducedMotion ? 0 : "-=0.4")
 
   // Stats entrance animation
   gsap.to([stat1, stat2, stat3], {
@@ -1011,6 +1225,41 @@ const initAnimations = () => {
       duration: 0.8, 
       ease: "back.out(1.7)" 
     }, "-=0.4")
+
+  // LLM Solutions section entrance animation (Raycast-inspired)
+  // Initialize solutions animation when the section appears
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '[data-section="solutions"]',
+      start: "top 80%",
+      toggleActions: "play none none none",
+      onRefresh: () => {
+        // Ensure elements are properly set when ScrollTrigger refreshes
+        const title = document.querySelector('[data-animate="title"]')
+        const cards = document.querySelectorAll('[data-animate="card"]')
+        if (title && cards.length) {
+          gsap.set(title, { opacity: 0, y: 50 })
+          gsap.set(cards, { opacity: 0, y: 40, scale: 0.9 })
+        }
+      }
+    }
+  })
+  .set('[data-animate="title"]', { opacity: 0, y: 50 })
+  .set('[data-animate="card"]', { opacity: 0, y: 40, scale: 0.9 })
+  .to('[data-animate="title"]', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out"
+  })
+  .to('[data-animate="card"]', {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    stagger: 0.1
+  }, "-=0.5")
 
   // Background element animations
   gsap.to(rotatingCircle, {
@@ -1561,6 +1810,56 @@ const setupParticleAnimations = () => {
     }
   })
 }
+
+// Mobile menu functions
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+  
+  // Prevent body scroll when menu is open
+  if (mobileMenuOpen.value) {
+    document.body.style.overflow = 'hidden'
+    // Add mobile menu animations
+    if (mobileMenu.value) {
+      gsap.from(mobileMenu.value.children, {
+        y: -20,
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        ease: "power2.out"
+      })
+    }
+  } else {
+    document.body.style.overflow = 'auto'
+  }
+}
+
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+  document.body.style.overflow = 'auto'
+}
+
+// Handle mobile swipe gestures for menu
+let touchStartY = 0
+let touchEndY = 0
+
+const handleTouchStart = (e) => {
+  touchStartY = e.changedTouches[0].screenY
+}
+
+const handleTouchEnd = (e) => {
+  touchEndY = e.changedTouches[0].screenY
+  handleSwipe()
+}
+
+const handleSwipe = () => {
+  if (touchStartY - touchEndY > 50) {
+    // Swipe up - close menu if open
+    if (mobileMenuOpen.value) {
+      closeMobileMenu()
+    }
+  }
+}
+
 </script>
 
 <style>
@@ -1569,6 +1868,70 @@ const setupParticleAnimations = () => {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Mobile-friendly touch targets */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve touch responsiveness */
+  .touch-target {
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Mobile hover states */
+  .mobile-hover:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Optimize font sizes for mobile */
+  html {
+    font-size: 16px;
+  }
+  
+  /* Improve button accessibility on mobile */
+  button:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  /* Mobile navigation improvements */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Creative layout utilities */
@@ -1691,6 +2054,36 @@ button:focus, a:focus {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated path drawing */
+@keyframes drawPath {
+  0% { 
+    stroke-dashoffset: 1; 
+  }
+  50% { 
+    stroke-dashoffset: 0; 
+  }
+  100% { 
+    stroke-dashoffset: -1; 
+  }
+}
+
+/* Enhanced floating animation for new elements */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom geometric shape animations */
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 /* Reduced motion preferences */
