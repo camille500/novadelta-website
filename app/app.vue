@@ -58,8 +58,18 @@
 
     <!-- Hero Section -->
     <section class="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <!-- Hero Background Image -->
+      <div class="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+          alt="Digital technology background"
+          class="w-full h-full object-cover opacity-10"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/15 to-purple-900/20"></div>
+      </div>
+      
       <!-- Background Elements -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 opacity-90"></div>
       <div class="absolute inset-0 opacity-30">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0); background-size: 60px 60px;" ref="heroPattern"></div>
       </div>
@@ -229,11 +239,19 @@
               </div>
             </div>
             <div class="lg:col-span-4 flex justify-center">
-              <div class="w-48 h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center" ref="benefit1Visual">
-                <div class="w-32 h-32 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center">
-                  <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                  </svg>
+              <div class="relative w-48 h-48 rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300" ref="benefit1Visual">
+                <img 
+                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Automation and technology"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-emerald-800/40"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -242,11 +260,19 @@
           <!-- Second Row - Right Emphasis -->
           <div class="grid lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-4 flex justify-center lg:order-1">
-              <div class="w-48 h-48 bg-gradient-to-br from-orange-100 to-orange-200 rounded-3xl flex items-center justify-center transform -rotate-6" ref="benefit2Visual">
-                <div class="w-32 h-32 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center">
-                  <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                  </svg>
+              <div class="relative w-48 h-48 rounded-2xl overflow-hidden shadow-xl transform -rotate-6 hover:rotate-0 transition-transform duration-500" ref="benefit2Visual">
+                <img 
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Business analytics and data"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-orange-800/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -461,8 +487,17 @@
             
             <!-- Side Stats Card -->
             <div class="lg:col-span-4">
-              <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 h-full flex flex-col justify-center">
-                <h4 class="text-xl font-bold text-slate-900 mb-6">Consulting Impact</h4>
+              <div class="relative bg-white p-8 rounded-3xl shadow-xl border border-slate-100 h-full flex flex-col justify-center overflow-hidden">
+                <!-- Background Image -->
+                <div class="absolute inset-0 opacity-5">
+                  <img 
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                    alt="Team collaboration"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="relative z-10">
+                  <h4 class="text-xl font-bold text-slate-900 mb-6">Consulting Impact</h4>
                 <div class="space-y-6">
                   <div class="text-center">
                     <div class="text-4xl font-black text-emerald-600 mb-2">85%</div>
@@ -486,6 +521,7 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
             </div>
           </div>
@@ -494,6 +530,14 @@
           <div class="grid lg:grid-cols-2 gap-8">
             <!-- Security & Compliance Card -->
             <div class="group bg-gradient-to-tr from-orange-50 via-white to-red-50 p-8 rounded-3xl border-2 border-orange-200 hover:border-orange-400 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden shadow-lg" ref="trainingCard">
+              <!-- Professional Background Image -->
+              <div class="absolute inset-0 opacity-5">
+                <img 
+                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Cybersecurity and compliance"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
               <!-- Geometric Background -->
               <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-200 to-orange-400 opacity-20 diamond group-hover:rotate-45 transition-transform duration-700"></div>
               
@@ -541,6 +585,14 @@
             
             <!-- Implementation Card -->
             <div class="group bg-gradient-to-bl from-violet-50 via-white to-purple-50 p-8 rounded-3xl border-2 border-violet-200 hover:border-violet-400 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden shadow-lg" ref="implementationCard">
+              <!-- Professional Background Image -->
+              <div class="absolute inset-0 opacity-5">
+                <img 
+                  src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Software development and coding"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
               <!-- Blob Background -->
               <div class="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-violet-200 to-purple-400 opacity-20 blob group-hover:scale-110 transition-transform duration-700"></div>
               
@@ -841,8 +893,17 @@
             </ul>
           </div>
           
-          <div class="bg-white p-8 rounded-2xl shadow-lg relative overflow-hidden border border-blue-100">
+          <div class="relative bg-white p-8 rounded-2xl shadow-lg overflow-hidden border border-blue-100">
+            <!-- Professional Team Background -->
+            <div class="absolute inset-0 opacity-10">
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Professional team collaboration"
+                class="w-full h-full object-cover"
+              />
+            </div>
             <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-full opacity-30 blur-xl"></div>
+            <div class="relative z-10">
             <h4 class="text-xl font-bold text-slate-900 mb-4">Our Approach</h4>
             <p class="text-slate-600 mb-6">
               We focus on practical LLM implementations that deliver measurable business value while 
@@ -858,6 +919,7 @@
                 <div class="text-sm text-slate-600">Compliance Rate</div>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -865,6 +927,14 @@
 
     <!-- Compliance & Security Section -->
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden">
+      <!-- Background Security Image -->
+      <div class="absolute inset-0 opacity-10">
+        <img 
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          alt="Security and data protection"
+          class="w-full h-full object-cover"
+        />
+      </div>
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-white mb-6">Enterprise-Grade Security & Compliance</h2>
@@ -919,6 +989,14 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <!-- Professional Business Background -->
+      <div class="absolute inset-0 opacity-5">
+        <img 
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+          alt="Modern business environment"
+          class="w-full h-full object-cover"
+        />
+      </div>
       <!-- Creative Background Accents -->
       <div class="absolute top-20 left-1/4 w-24 h-24 bg-gradient-to-r from-violet-200 to-purple-300 rounded-full opacity-25 blur-2xl" ref="contactAccent1"></div>
       <div class="absolute bottom-20 right-1/4 w-20 h-20 bg-gradient-to-r from-emerald-200 to-teal-300 rounded-full opacity-20 blur-2xl" ref="contactAccent2"></div>
@@ -928,12 +1006,24 @@
         <p class="text-xl text-slate-600 mb-8">
           Let's explore how NOVA DELTA can automate your workflows and accelerate your growth with secure, compliant LLM solutions.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 shadow-lg hover:shadow-xl">
-            Book Strategy Session
+        <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+          <button class="group bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:from-blue-950 hover:to-indigo-950 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden">
+            <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+            <span class="relative flex items-center justify-center">
+              Book Strategy Session
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </span>
           </button>
-          <button class="border-2 border-blue-300 text-blue-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-indigo-500 hover:text-indigo-600 hover:bg-blue-50 transition-all duration-300">
-            Contact Us
+          <button class="group border-2 border-blue-300 text-blue-700 px-10 py-5 rounded-2xl text-lg font-bold hover:border-indigo-500 hover:text-indigo-600 hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden">
+            <span class="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-blue-100/50 to-blue-50/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+            <span class="relative flex items-center justify-center">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              Contact Us
+            </span>
           </button>
         </div>
       </div>
